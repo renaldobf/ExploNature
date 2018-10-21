@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- PAGE settings -->
+  <link rel="icon" href="https://templates.pingendo.com/assets/Pingendo_favicon.ico">
+  <title>Atmosphere</title>
+  <meta name="description" content="Wireframe design of an album page by Pingendo">
+  <meta name="keywords" content="Pingendo bootstrap example template wireframe album ">
+  <meta name="author" content="Pingendo">
+  <!-- CSS dependencies -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="wireframe.css">
+  <script type="text/javascript" src="moment.min.js"></script>
+  <script type="text/javascript" src="chart.min.js"></script>
+</head>
+
+<body>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 py-4">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-primary">
+    <div class="container d-flex justify-content-between">
+      <a href="index.html" class="navbar-brand d-flex align-items-center"><img src="images/logo_branco.svg" height="30"></a>
+       <div class="row">
+        <div class="active-tab"><a href="atmosfera.html" class="navbar-brand d-flex align-items-center"><i class="fa d-inline mr-2 fa-cloud"></i><strong>Atmosphere</strong> </a></div>
+        <div style=""><a href="https://www.globe.gov/web/biosphere/" class="navbar-brand d-flex align-items-center" target="_blank"><i class="fa d-inline mr-2 fa-bug"></i><strong>Biosphere</strong> </a></div>
+        <div style=""><a href="https://www.globe.gov/web/hydrosphere/" class="navbar-brand d-flex align-items-center" target="_blank"><i class="fa d-inline mr-2 fa-tint"></i><strong>Hidrosphere</strong> </a></div>
+        <div style=""><a href="https://www.globe.gov/web/soil/" class="navbar-brand d-flex align-items-center" target="_blank"><i class="fa d-inline mr-2 fa-envira"></i><strong>Soil</strong> </a></div>
+        <div style=""><a href="https://www.globe.gov/web/earth-systems/" class="navbar-brand d-flex align-items-center" target="_blank"><i class="fa d-inline mr-2 fa-globe"></i><strong>Earth's System</strong> </a></div>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"> </button>
+    </div>
+  </div>
+  <div class="py-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="text-center">What is it made of?</h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+        	<div id="canvas-holder">
+				<canvas id="chart-area"></canvas>
+			</div>
+		</div>      
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-12">
+          <p>The Earth's atmosphere is composed of Nitrogen, Oxigen, Argon with Carbon Dioxide and other gases in trace amounts.</p>
+          <p>You can hover and click the graph to see the ammounts of each element in the air.</p>
+        </div>
+      </div>
+    	
+    	<hr>
+      <div class="row py-3">
+        <div class="col-md-3"></div>
+        <div class="col-md-3"><a class="btn btn-secondary btn-lg btn-block" href="atmosfera.html" style="float: right">Previous</a></div>
+        <div class="col-md-3"><a href="atmosfera3.html" class="btn btn-primary btn-lg btn-block">Next</a></div>
+        <div class="col-md-3"></div>
+      </div>
+    </div>
+  </div>
+  <script src="jquery-3.3.1.slim.min.js"></script>
+  <script src="popper.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+window.chartColors = {
+	red: 'rgb(255, 99, 132)',
+	orange: 'rgb(255, 159, 64)',
+	yellow: 'rgb(255, 205, 86)',
+	green: '#80ef89',
+	blue: 'rgb(54, 162, 235)',
+	purple: 'rgb(153, 102, 255)',
+	grey: 'rgb(201, 203, 207)'
+};
+
+window.onload = ()=>{
+  var ctx = document.getElementById("chart-area");
+  var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: [
+			'Nitrogen',
+			'Oxigen',
+			'Argon',
+			'Carbon dioxide',
+			'Other gases'
+		],
+      datasets: [{
+        label: 'Visualizações',
+        data: [78, 21, 1, 0.03, 0.02],
+        backgroundColor: [
+			window.chartColors.blue,
+			window.chartColors.green,
+			window.chartColors.red,
+			window.chartColors.orange,
+			window.chartColors.grey
+		]	
+      }],
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: false
+          }
+        }]
+      },
+      legend: {
+        display: true,
+        position: 'bottom'
+      }
+    }
+  }}
+  );
+};
+</script>
+<script src="profile.js"></script>
+</body>
+
+</html>

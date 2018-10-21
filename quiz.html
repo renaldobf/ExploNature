@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- PAGE settings -->
+  <link rel="icon" href="https://templates.pingendo.com/assets/Pingendo_favicon.ico">
+  <title>ExploNature</title>
+  <meta name="description" content="Wireframe design of an album page by Pingendo">
+  <meta name="keywords" content="Pingendo bootstrap example template wireframe album ">
+  <meta name="author" content="Pingendo">
+  <!-- CSS dependencies -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="wireframe.css">
+
+<script type="text/javascript">
+	
+	var perguntas = [
+		{
+			"pergunta": "An atmosphere is a layer or a set of layers of gases.",
+			"resposta": true,
+			"imagem": "images/quiz1.jpg"
+		},{
+			"pergunta": "The atmosphere of Earth is composed of Nitrogen, Oxygen, Argon and Helium.",
+			"resposta": true,
+			"imagem": "images/quiz2.jpg"
+		},{
+			"pergunta": "In terms of percent the Nitrogen present on the Atmosphere is 78%.",
+			"resposta": true,
+			"imagem": "images/quiz3.jpg"
+		},{
+			"pergunta": "To Geology the Atmosphere acts to shape a planetary surface.",
+			"resposta": true,
+			"imagem": "images/quiz4.jpg"
+		},{
+			"pergunta": "The lowest layer of the Atmosphere is the Mesosphere.",
+			"resposta": false,
+			"imagem": "images/quiz5.jpg"
+		},{
+			"pergunta": "The layer of the Atmosphere where atoms and molecules escape into space is called the Exosphere.",
+			"resposta": true,
+			"imagem": "images/quiz6.jpg"
+		},{
+			"pergunta": "The Mesosphere can reach the temperature of -90°C.",
+			"resposta": false,
+			"imagem": "images/quiz7.jpg"
+		},
+	];
+
+	var quiz_index = 0;
+	var quiz_answer;
+	var quiz_points = 0;
+	var quiz_total = 0;
+	var quiz_correct = 0;
+	function next_quiz() {
+		var i = quiz_index;
+		quiz_index++;
+		if (quiz_index >= perguntas.length) {
+			quiz_finish();
+			return;
+		}
+		document.getElementById('pergunta').textContent = perguntas[i].pergunta;
+		document.getElementById('imagem').src = perguntas[i].imagem;
+		quiz_answer = perguntas[i].resposta;
+	}
+
+	function resposta(res) {
+		var success = (res == quiz_answer);
+		if (success) {
+			document.getElementById('res_titulo').textContent = 'Correct!';
+			quiz_points = 35;
+			quiz_correct++;
+			quiz_total += quiz_points;
+		}
+		else {
+			document.getElementById('res_titulo').textContent = 'Wrong!';
+			quiz_points = 0;
+		}
+		$('#resposta').modal('show');
+	}
+
+	function continuar() {
+		$('#resposta').modal('hide');
+		next_quiz();
+		addPoints(quiz_points);
+	}
+
+	function quiz_finish() {
+		document.getElementById('corretas').textContent = quiz_correct;
+		document.getElementById('total').textContent = perguntas.length;
+		document.getElementById('pontos').textContent = quiz_points;
+		$('#final').modal('show');
+	}
+
+	window.onload = next_quiz;
+</script>
+
+  <script src="profile.js"></script>
+</head>
+
+<body><div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 py-4">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-primary">
+    <div class="container d-flex justify-content-between">
+      <a href="index.html" class="navbar-brand d-flex align-items-center"><img src="images/logo_branco.svg" height="30"></a>
+      <div class="row">
+        <div class="active-tab"><a href="atmosfera.html" class="navbar-brand d-flex align-items-center"><i class="fa d-inline mr-2 fa-cloud"></i><strong>Atmosphere</strong> </a></div>
+        <div style=""><a href="https://www.globe.gov/web/biosphere/" class="navbar-brand d-flex align-items-center" target="_blank"><i class="fa d-inline mr-2 fa-bug"></i><strong>Biosphere</strong> </a></div>
+        <div style=""><a href="https://www.globe.gov/web/hydrosphere/" class="navbar-brand d-flex align-items-center" target="_blank"><i class="fa d-inline mr-2 fa-tint"></i><strong>Hidrosphere</strong> </a></div>
+        <div style=""><a href="https://www.globe.gov/web/soil/" class="navbar-brand d-flex align-items-center" target="_blank"><i class="fa d-inline mr-2 fa-envira"></i><strong>Soil</strong> </a></div>
+        <div style=""><a href="https://www.globe.gov/web/earth-systems/" class="navbar-brand d-flex align-items-center" target="_blank"><i class="fa d-inline mr-2 fa-globe"></i><strong>Earth's System</strong> </a></div>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"> </button>
+    </div>
+  </div>
+  <div class="py-2">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h1 class="display-3 text-center">Quiz</h1>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-header text-center" style="">
+              <h4 class="mt-1 text-left">Atmosphere</h4>
+            </div>
+            <div class="card-body" style="">
+              <p class="lead">&nbsp;</p>
+              <h4 class="text-center mb-5" id="pergunta"></h4>
+              <h6 class="text-muted"> </h6>
+              <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-3"><button class="btn btn-lg btn-block btn-success" onclick="resposta(true);">True</button></div>
+                <div class="col-md-3"><button class="btn btn-danger btn-lg btn-block" onclick="resposta(false);">False</button></div>
+                <div class="col-md-3"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- modal resposta -->
+  <div class="modal" id="resposta">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="res_titulo">Correct!</h5>
+        </div>
+        <div class="modal-body">
+          <img id="imagem" class="img-fluid d-block" src="images/quiz1.jpg" style="max-height:70vh;margin:auto">
+        </div>
+        <div class="modal-footer"> <button type="button" class="btn btn-secondary">See more about</button> <button type="button" class="btn btn-primary" onclick="continuar()">Continue</button> </div>
+      </div>
+    </div>
+  </div>
+  <!-- modal final -->
+  <div class="modal" id="final">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Congratulations!</h5>
+        </div>
+        <div class="modal-body">
+          <img id="imagem" class="img-fluid d-block" src="images/globo_feliz.svg" style="max-height:60vh;margin:auto">
+          <p>You answered correctly <span id="corretas"></span> of <span id="total"></span> questions and earned a total of <span id="pontos">points</span>!</p>
+        </div>
+        <div class="modal-footer" style="text-align: center;"> <button type="button" class="btn btn-primary" onclick="window.location='profile.html'">Finish quiz</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <script src="jquery-3.3.1.slim.min.js"></script>
+  <script src="popper.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+</body>
+
+</html>

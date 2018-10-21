@@ -1,0 +1,34 @@
+{
+	"perguntas":[
+		{
+			"pergunta": "An atmosphere is a layer or a set of layers of gases.",
+			"resposta": true,
+			"imagem": "/image/quiz1.jpg"
+		},{
+			"pergunta": "The atmosphere of Earth is composed of Nitrogen, Oxygen, Argon and Helium.",
+			"resposta": true,
+			"imagem": "/image/quiz2.jpg"
+		},{
+			"pergunta": "In terms of percent the Nitrogen present on the Atmosphere is 78%. ",
+			"resposta": true,
+			"imagem": "/image/quiz3.jpg"
+		},{
+			"pergunta": "To Geology the Atmosphere acts to shape a planetary surface.",
+			"resposta": true,
+			"imagem": "/image/quiz4.jpg"
+		},{
+			"pergunta": "The lowest layer of the Atmosphere is the Mesosphere.",
+			"resposta": false,
+			"imagem": "/image/quiz5.jpg"
+		},{
+			"pergunta": "The layer of the Atmosphere where atoms and molecules escape into space is called the Exosphere.",
+			"resposta": true,
+			"imagem": "/image/quiz6.jpg"
+		},{
+			"pergunta": "The Mesosphere can reach the temperature of -90°C.",
+			"resposta": false,
+			"imagem": "/image/quiz7.jpg"
+		},
+	]
+}
+}// JSON Document

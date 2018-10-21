@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- PAGE settings -->
+  <link rel="icon" href="https://templates.pingendo.com/assets/Pingendo_favicon.ico">
+  <title>ExploNature</title>
+  <meta name="description" content="Wireframe design of an album page by Pingendo">
+  <meta name="keywords" content="Pingendo bootstrap example template wireframe album ">
+  <meta name="author" content="Pingendo">
+  <!-- CSS dependencies -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="wireframe.css">
+  <style type="text/css">
+  	form {
+  		border: 1px solid silver;
+		background: #f8f8f8;
+		padding: 2em;
+  	}
+  </style>
+  <script type="text/javascript">
+
+	function resetProfile() {
+		window.localStorage.removeItem('username');
+		window.localStorage.removeItem('level');
+		window.localStorage.removeItem('previousLevel');
+		window.localStorage.removeItem('nextLevel');
+		window.localStorage.removeItem('points');
+		window.localStorage.removeItem('progress');
+	}
+
+  	function send(ev) {
+  		ev.preventDefault();
+  		ev.stopPropagation();
+
+  		resetProfile();
+
+  		window.localStorage.setItem('username',
+  			ev.target.querySelector('input[name=name]').value
+  		);
+  		window.location = 'profile.html';
+  		return false;
+  	}
+  </script>
+</head>
+
+<body>
+  <div class="collapse bg-dark" id="navbarHeader">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 py-4">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="navbar navbar-dark bg-primary">
+    <div class="container d-flex justify-content-between">
+      <a href="index.html" class="navbar-brand d-flex align-items-center"><img src="images/logo_branco.svg" height="30"></a>
+      <div class="row">
+        <div style=""><a href="atmosfera.html" class="navbar-brand d-flex align-items-center"><i class="fa d-inline mr-2 fa-cloud"></i><strong>Atmosphere</strong> </a></div>
+        <div style=""><a href="https://www.globe.gov/web/biosphere/" class="navbar-brand d-flex align-items-center" target="_blank"><i class="fa d-inline mr-2 fa-bug"></i><strong>Biosphere</strong> </a></div>
+        <div style=""><a href="https://www.globe.gov/web/hydrosphere/" class="navbar-brand d-flex align-items-center" target="_blank"><i class="fa d-inline mr-2 fa-tint"></i><strong>Hidrosphere</strong> </a></div>
+        <div style=""><a href="https://www.globe.gov/web/soil/" class="navbar-brand d-flex align-items-center" target="_blank"><i class="fa d-inline mr-2 fa-envira"></i><strong>Soil</strong> </a></div>
+        <div style=""><a href="https://www.globe.gov/web/earth-systems/" class="navbar-brand d-flex align-items-center" target="_blank"><i class="fa d-inline mr-2 fa-globe"></i><strong>Earth's System</strong> </a></div>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader"> </button>
+    </div>
+  </div>
+  <div class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 pr-4">
+          <h1 class="display-4 text-center mb-4">Welcome to <img src="images/logo.svg" height="60" style="margin-bottom: -6px; margin-left: 4px"></h1>
+          <p class="lead text-justify">Explo<b style="color:#0a0">Nature</b> is a responsive webspace aimed to the divulgation of information about the Earth, its systems and all its beauty.</p>
+          <h2 class="my-3">Who are we?</h2>
+          <p class="lead text-justify">We are <b style="color:#0a0">Kepler 101</b>, a group of people who believes in quality education for everyone. We develop solutions that are full of scientific topics to explore about our planet Earth, easy to understand even for people who are not intimate with the subject. </p>
+			<p class="lead text-justify">Our ultimate purpose is to share knowledge with the world!</p>
+        </div>
+        <div class="col-md-4">
+          <form onsubmit="return send(event)">
+            <h1 class="">Register</h1>
+            <div class="form-group">
+            	<label class="sr-only">Name</label>
+            	<input type="text" name="name" class="form-control form-control-lg" placeholder="Your name">
+            </div>
+            <div class="form-group">
+            	<label class="sr-only">Email address</label>
+            	<input type="email" class="form-control form-control-lg" placeholder="Email address">
+            	<small class="form-text text-muted">We'll never share your email. We promise.</small>
+            </div>
+            <div class="row">
+              	<button type="submit" class="btn btn-success btn-lg btn-block">Register</button>
+              	<button type="submit" class="btn btn-primary btn-lg btn-block">or Login</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="jquery-3.3.1.slim.min.js"></script>
+  <script src="popper.min.js"></script>
+  <script src="bootstrap.min.js"></script>
+</body>
+
+</html>
